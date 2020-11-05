@@ -6,8 +6,10 @@
         <ToolbarItem x:Name="AddTool"
                      Text="Add"
                      Clicked="AddTool_Clicked"/>
+        
     </ContentPage.ToolbarItems>
     <StackLayout>
-            
+        <Label Text="Home page"
+               VerticalOptions="Center"/>
     </StackLayout>
 </ContentPage>
