@@ -4,13 +4,15 @@
              x:Class="SmartSprinkler.NewPlant">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Salvar" Text="save"
+        <ToolbarItem x:Name="Salvar" Text="salvar"
                      Clicked="Salvar_Clicked" />
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <Label Text= "Welcome to the new plant!"
-               VerticalOptions="CenterAndExpand"/>
+        <Entry x:Name="plantEntry"
+              Placeholder="Qual o nome da planta?"
+               VerticalOptions="CenterAndExpand"
+               Margin="16"/>
     </StackLayout>
     
 </ContentPage>

@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace SmartSprinkler
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : TabbedPage
+    public partial class StatusPage : ContentPage
     {
-        public HomePage()
+        public StatusPage()
         {
             InitializeComponent();
-        }
-
-        private void AddTool_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new NewPlant());
         }
     }
 }

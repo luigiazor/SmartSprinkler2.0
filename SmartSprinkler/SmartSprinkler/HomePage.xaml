@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartSprinkler.HomePage">
-    <ContentPage.ToolbarItems>
+             x:Class="SmartSprinkler.HomePage"
+            xmlns:local="clr-namespace:SmartSprinkler">
+    <TabbedPage.ToolbarItems>
         <ToolbarItem x:Name="AddTool"
                      Text="Add"
                      Clicked="AddTool_Clicked"/>
-        
-    </ContentPage.ToolbarItems>
-    <StackLayout>
-        <Label Text="Home page"
-               VerticalOptions="Center"/>
-    </StackLayout>
-</ContentPage>
+    </TabbedPage.ToolbarItems>
+    <local:HistoryPlantasPage Title="Plantas"/>
+    <local:StatusPage Title="Status"/>
+    <local:ConfigPage Title="Config"/>
+</TabbedPage>
