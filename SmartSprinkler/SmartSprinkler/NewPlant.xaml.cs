@@ -16,5 +16,10 @@ namespace SmartSprinkler
         {
             InitializeComponent();
         }
+
+        private void Salvar_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
