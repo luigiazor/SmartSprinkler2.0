@@ -31,5 +31,14 @@ namespace SmartSprinkler
             
         }
 
+        private void postsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedPost = postsListView.SelectedItem as TiposPlantas;
+
+            if(selectedPost != null)
+            {
+                Navigation.PushAsync(new PostDetailPage(selectedPost));
+            }
+        }
     }
 }
