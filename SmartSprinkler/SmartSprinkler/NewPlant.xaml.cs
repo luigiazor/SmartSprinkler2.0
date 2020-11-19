@@ -24,15 +24,16 @@ namespace SmartSprinkler
             {
                 Nomeplantas = plantEntry.Text
             };
-            SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
-            conn.CreateTable<TiposPlantas>();
-            int rows = conn.Insert(plantas);
-            conn.Close();
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<TiposPlantas>();
+                int rows = conn.Insert(plantas);
 
-            if (rows > 0)
-                DisplayAlert("Success", "Inserido com sucesso", "ok");
-            else
-                DisplayAlert("Failure", "Não foi possivel inserir", "ok");
+                if (rows > 0)
+                    DisplayAlert("Success", "Inserido com sucesso", "ok");
+                else
+                    DisplayAlert("Failure", "Não foi possivel inserir", "ok");
+            }
         }
     }
 }

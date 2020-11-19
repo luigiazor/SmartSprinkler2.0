@@ -22,10 +22,13 @@ namespace SmartSprinkler
         {
             base.OnAppearing();
 
-            SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
-            conn.CreateTable<TiposPlantas>();
-            var posts = conn.Table<TiposPlantas>().ToList();
-            conn.Close();
+            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                conn.CreateTable<TiposPlantas>();
+                var posts = conn.Table<TiposPlantas>().ToList();
+                postsListView.ItemsSource = posts;
+            }
+            
         }
 
     }
