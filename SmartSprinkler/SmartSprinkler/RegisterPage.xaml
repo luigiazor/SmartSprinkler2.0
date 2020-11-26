@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartSprinkler.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="EmailAdressEntry" 
+               Placeholder="Email"
+               Keyboard="Email"
+               TextColor="{StaticResource Blue}"
+               Margin="20, 0"
+               />
+            <Entry x:Name="PasswordEntry" 
+               Placeholder="Password"
+               TextColor="{StaticResource Blue}"
+               IsPassword="True"
+               />
+            <Entry x:Name="confirmPasswordEntry"
+                   Placeholder="Confirm Password"
+                   TextColor="{StaticResource Blue}"
+                   IsPassword="True"
+                />
+            <Button x:Name="RegisterButton"
+                Clicked="RegisterButton_Clicked"
+                Text="Register"
+                Margin="0,50,0,0"
+                Style="{StaticResource normalButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

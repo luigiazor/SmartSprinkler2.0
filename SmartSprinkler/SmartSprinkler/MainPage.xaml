@@ -3,23 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartSprinkler.MainPage">
 
-    <StackLayout VerticalOptions="Center">
+    <StackLayout VerticalOptions="Center"
+                 Margin="20">
         <Entry x:Name="EmailAdressEntry" 
                Placeholder="Email"
                Keyboard="Email"
+               TextColor="{StaticResource Blue}"
                Margin="20, 0"
                />
         <Entry x:Name="PasswordEntry" 
                Placeholder="Password"
+               TextColor="{StaticResource Blue}"
                IsPassword="True"
-               Margin="20"
                />
         <Button x:Name="LoginButton"
                 Clicked="LoginButton_Clicked"
                 Text="Log in"
-                Margin="30, 10"
+                Margin="0,50,0,0"
                 Style="{StaticResource normalButton}"/>
-        
+        <Button x:Name="registerUserButton"
+                Text="Register"
+                HorizontalOptions="End"
+                Clicked="registerUserButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>

@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.IO;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace SmartSprinkler.Droid
 {
@@ -20,6 +21,7 @@ namespace SmartSprinkler.Droid
 
             base.OnCreate(savedInstanceState);
 
+            CurrentPlatform.Init();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             //definir basicamente tudo aqui

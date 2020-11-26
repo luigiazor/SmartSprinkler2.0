@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 
 using Foundation;
+using Microsoft.WindowsAzure.MobileServices;
 using UIKit;
 
 namespace SmartSprinkler.iOS
@@ -25,6 +26,7 @@ namespace SmartSprinkler.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            CurrentPlatform.Init();
             string dbName = "plantas_db.sqlite";
             string folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..", "Library");
             string fullPath = Path.Combine(folderPath, dbName);
