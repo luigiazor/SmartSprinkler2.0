@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartSprinkler.Model
 {
-    class Users
+    public class Users
     {
         public string Id { get; set; }
         public string Email { get; set; }

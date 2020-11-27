@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SmartSprinkler.Model;
 
 namespace SmartSprinkler
 {
@@ -10,6 +11,13 @@ namespace SmartSprinkler
         public static string DatabaseLocation = string.Empty;
 
         public static MobileServiceClient MobileService = new MobileServiceClient("https://smartsprinklerapp.azurewebsites.net");
+
+        public static Users user = new Users();
+        public static int StringToNullableInt(string strNum)
+        {
+            int valor = Convert.ToInt32(strNum);
+            return (valor);
+        }
         public App()
         {
             InitializeComponent();
