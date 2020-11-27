@@ -13,6 +13,11 @@
               Placeholder="Qual o nome da planta?"
                VerticalOptions="CenterAndExpand"
                Margin="16"/>
+        <Entry x:Name="waterEntry"
+               VerticalOptions="StartAndExpand"
+               Keyboard="Numeric"
+               Placeholder="a cada quantas horas ela será regada?"
+               Margin="16"/>
     </StackLayout>
     
 </ContentPage>
