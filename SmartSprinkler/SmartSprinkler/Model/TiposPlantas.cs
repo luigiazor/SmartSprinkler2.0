@@ -11,5 +11,6 @@ namespace SmartSprinkler.Model
         public int Id { get; set; }
         [MaxLength(30)]
         public string Nomeplantas { get; set; }
+        public int Water { get; set; }
     }
 }

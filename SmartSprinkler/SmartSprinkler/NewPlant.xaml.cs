@@ -22,8 +22,10 @@ namespace SmartSprinkler
         {
             TiposPlantas plantas = new TiposPlantas()
             {
-                Nomeplantas = plantEntry.Text
+                Nomeplantas = plantEntry.Text,
+                Water = StringToNullableInt(waterEntry.Text.ToString())
             };
+           
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
                 conn.CreateTable<TiposPlantas>();
@@ -34,6 +36,11 @@ namespace SmartSprinkler
                 else
                     DisplayAlert("Failure", "Não foi possivel inserir", "ok");
             }
+        }
+        public static int StringToNullableInt(string strNum)
+        {
+            int valor = Convert.ToInt32(strNum);
+            return (valor);
         }
     }
 }

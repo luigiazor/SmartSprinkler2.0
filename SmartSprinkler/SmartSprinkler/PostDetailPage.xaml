@@ -4,6 +4,9 @@
              x:Class="SmartSprinkler.PostDetailPage">
     <StackLayout>
         <Entry x:Name="plantasEntry"/>
+        <Entry x:Name="waterEntryedit"
+               Placeholder="A cada quantas horas ela será regada?"
+               Keyboard="Numeric"/>
         <Button Text="Update"
                 x:Name="UpdateButton"
                 Clicked="UpdateButton_Clicked"/>
