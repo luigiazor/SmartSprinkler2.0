@@ -32,6 +32,7 @@ namespace SmartSprinkler
 
                 if(user != null)
                 {
+                    App.user = user;
                     if (user.Password == PasswordEntry.Text)
                         await Navigation.PushAsync(new HomePage());
                     else

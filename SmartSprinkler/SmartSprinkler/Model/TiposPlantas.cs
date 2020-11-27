@@ -8,9 +8,11 @@ namespace SmartSprinkler.Model
     public class TiposPlantas
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [MaxLength(30)]
         public string Nomeplantas { get; set; }
         public int Water { get; set; }
+
+        public string UserId { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace SmartSprinkler
         private void UpdateButton_Clicked(object sender, EventArgs e)
         {
             selectedPost.Nomeplantas = plantasEntry.Text;
-            selectedPost.Water = StringToNullableInt(waterEntryedit.Text.ToString());
+            selectedPost.Water = App.StringToNullableInt(waterEntryedit.Text.ToString());
 
             using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
@@ -53,10 +53,6 @@ namespace SmartSprinkler
                     DisplayAlert("Failure", "Não foi possivel apagar", "ok");
             }
         }
-        public static int StringToNullableInt(string strNum)
-        {
-            int valor = Convert.ToInt32(strNum);
-            return (valor);
-        }
+        
     }
 }
