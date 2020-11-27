@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using SmartSprinkler.Model;
 
 namespace SmartSprinkler
 {
@@ -15,8 +16,9 @@ namespace SmartSprinkler
             InitializeComponent();
         }
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+
             bool isEmailEmpty = String.IsNullOrEmpty(EmailAdressEntry.Text);
             bool isPasswordEmpty = String.IsNullOrEmpty(PasswordEntry.Text);
             if(isEmailEmpty || isPasswordEmpty)
@@ -25,7 +27,21 @@ namespace SmartSprinkler
             }
             else
             {
-                Navigation.PushAsync(new HomePage());
+
+                var user = (await App.MobileService.GetTable<Users>().Where(u => u.Email == EmailAdressEntry.Text).ToListAsync()).FirstOrDefault();
+
+                if(user != null)
+                {
+                    if (user.Password == PasswordEntry.Text)
+                        await Navigation.PushAsync(new HomePage());
+                    else
+                        await DisplayAlert("Error", "email or password are incorrect", "Ok");
+                }
+                else
+                {
+                    await DisplayAlert("Error", "There is a error", "Ok");
+                }
+                
             }
         }
 
