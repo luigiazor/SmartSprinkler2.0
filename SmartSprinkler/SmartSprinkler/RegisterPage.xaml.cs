@@ -29,6 +29,7 @@ namespace SmartSprinkler
                 };
 
                 await App.MobileService.GetTable<Users>().InsertAsync(user);
+                await DisplayAlert("Sucess", "Registrado com sucesso", "Ok");
             }
             else
             {
