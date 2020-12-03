@@ -20,15 +20,16 @@ namespace SmartSprinkler
 
             this.selectedPost = selectedPost;
             plantasEntry.Text = selectedPost.Nomeplantas;
+
             
         }
 
-        private void UpdateButton_Clicked(object sender, EventArgs e)
+        private async void UpdateButton_Clicked(object sender, EventArgs e)
         {
             selectedPost.Nomeplantas = plantasEntry.Text;
             selectedPost.Water = App.StringToNullableInt(waterEntryedit.Text.ToString());
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            /* using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
                 conn.CreateTable<TiposPlantas>();
                 int rows = conn.Update(selectedPost);
@@ -37,12 +38,15 @@ namespace SmartSprinkler
                     DisplayAlert("Success", "Alterado com sucesso", "ok");
                 else
                     DisplayAlert("Failure", "Não foi possivel alterar", "ok");
-            }
+            }*/
+
+            await App.MobileService.GetTable<TiposPlantas>().UpdateAsync(selectedPost);
+            await DisplayAlert("Success", "alterado com sucesso", "ok");
         }
 
-        private void DeleteButton_Clicked(object sender, EventArgs e)
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            /* using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
                 conn.CreateTable<TiposPlantas>();
                 int rows = conn.Delete(selectedPost);
@@ -51,7 +55,10 @@ namespace SmartSprinkler
                     DisplayAlert("Success", "Apagado com sucesso", "ok");
                 else
                     DisplayAlert("Failure", "Não foi possivel apagar", "ok");
-            }
+            }*/
+            await App.MobileService.GetTable<TiposPlantas>().DeleteAsync(selectedPost);
+
+            await DisplayAlert("Success", "Deletado com sucesso", "ok");
         }
         
     }

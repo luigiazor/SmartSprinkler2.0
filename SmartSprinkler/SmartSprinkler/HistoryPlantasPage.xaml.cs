@@ -18,17 +18,19 @@ namespace SmartSprinkler
         {
             InitializeComponent();
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
+            /*using (SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation))
             {
                 conn.CreateTable<TiposPlantas>();
                 var posts = conn.Table<TiposPlantas>().ToList();
                 postsListView.ItemsSource = posts;
-            }
-            
+            }*/
+
+            var posts = await App.MobileService.GetTable<TiposPlantas>().Where(p => p.UserId == App.user.Id).ToListAsync();
+            postsListView.ItemsSource = posts;
         }
 
         private void postsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

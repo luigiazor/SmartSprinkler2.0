@@ -10,7 +10,7 @@ namespace SmartSprinkler
     {
         public static string DatabaseLocation = string.Empty;
 
-        public static MobileServiceClient MobileService = new MobileServiceClient("https://smartsprinklerapp.azurewebsites.net");
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://smartsprinklerapi.azurewebsites.net");
 
         public static Users user = new Users();
         public static int StringToNullableInt(string strNum)
